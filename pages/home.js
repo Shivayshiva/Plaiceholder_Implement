@@ -3,12 +3,9 @@ import getBlurData from './utils/blur-data-generator';
 import Image from 'next/image';
 //import Img from '../public/photo1.jpg'
 
+const imageUrl= "https://images.unsplash.com/photo-1698338956399-bf6a91f44de5?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
-
-export default async function home() {
-  const imageUrl= "https://images.unsplash.com/photo-1698338956399-bf6a91f44de5?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-  const base64 = await getBlurData(imageUrl);
-  
+export default function home({ base64 }) {
   return (
     <div>
       <button >Click Me</button>
@@ -23,4 +20,13 @@ export default async function home() {
       />
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const base64 = await getBlurData(imageUrl);
+  return {
+    props: {
+      base64,
+    },
+  };
 }

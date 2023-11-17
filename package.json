@@ -10,10 +10,13 @@
     "serve-json": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "json-server": "^0.17.4",
     "next": "14.0.2",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "eslint": "^8",
